@@ -22,10 +22,10 @@ while t < t_end:
     huE = np.pad(hu, 1, mode='edge')
     F1, F2 = flux(hE, huE)
     cE = np.abs(huE/hE)+np.sqrt(g*hE)
-    a = np.maximun(cE[:-1], cE[:1])
+    a = np.maximum(cE[:-1], cE[1:])
 
-    f1 = 0.5*(F1[:-1]+F1[:1]) - a*0.5*(hE[:1] - hE[:-1])
-    f2 = 0.5*(F2[:-1]+F2[:1]) - a*0.5*(huE[:1] - huE[:-1])
+    f1 = 0.5*(F1[:-1]+F1[1:]) - a*0.5*(hE[1:] - hE[:-1])
+    f2 = 0.5*(F2[:-1]+F2[1:]) - a*0.5*(huE[1:] - huE[:-1])
 
     h = h - dt/dx*(f1[1:]-f1[:-1])
     hu = hu - dt/dx*(f2[1:]-f2[:-1])
