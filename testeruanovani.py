@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
+#valores constantes
 g = 9.81
 nx = ny = 150
 l = 10.0
