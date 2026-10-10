@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+#valores das cosntantes
 g = 9.81
 nx = ny = 200
 L = 10.0

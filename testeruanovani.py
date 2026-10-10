@@ -9,7 +9,7 @@ l = 10.0
 dx = dy = l/nx
 x = (np.arange(nx)+0.5)*dx
 y = (np.arange(ny)+(0.5))*dy
-X, Y = np.meshgrid(x, y, indexing="ij")
+X, Y = np.meshgrid(x, y, indexing="ij") #eixos x e y
 
 h = np.where((X - l/2)**2 + (Y - l/2)**2 < 1.5**2, 2.0, 1.0)
 hu = np.zeros_like(h)
@@ -30,7 +30,7 @@ def com_paredes(q, sx, sy):
     return qe
 
 def passo():
-    global h, hu, hv
+    global h, hu, hv #variáveis globais
     c = np.sqrt(g*h) + np.maximum(np.abs(hu/h), np.abs(hv/h))
     dt = 0.25*dx/c.max()
 
@@ -64,7 +64,7 @@ t = 0.0
 
 PASSO_POR_QUADRO = 3
 
-def atualizar(quadro):
+def atualizar(quadro): #frames
     global t
     for _ in range(PASSO_POR_QUADRO):
         t += passo()
